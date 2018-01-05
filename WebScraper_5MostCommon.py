@@ -15,7 +15,7 @@ words_to_exclude = {'a', 'the', 'of', 'it', 'is', 'it', 'and', 'in', 'he', 'he',
 
 important = Counter(word for word in text if word not in words_to_exclude)
 
-print(Important.most_common(6))
+print(important.most_common(6))
 
 # This prints most common words staring at most common.
 # We want to exclude the helper verbs, articles, and 'a.'
