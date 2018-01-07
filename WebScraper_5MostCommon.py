@@ -11,7 +11,7 @@ text = (word.lower().strip(whitespace + punctuation)
         for text in element.findAll(text=True)
         for word in text.split())
 
-words_to_exclude = {'a', 'the', 'of', 'it', 'is', 'it', 'and', 'in', 'he', 'he', 'to'}
+words_to_exclude = {'a', 'or', 'the', 'of', 'it', 'is', 'it', 'and', 'in', 'she', 'he', 'to'}
 
 important = Counter(word for word in text if word not in words_to_exclude)
 
