@@ -1,0 +1,31 @@
+m = [1, 2, 4]
+n = [1, 2, 3, 4, 5, 6]
+o = [1, 2, 3, 4, 5, 6, 8, 9]
+p = [2, 3, 4, 5, 6, 7, 8, 9, 14, 16, 19, 21]
+q = [1] * 2000
+
+def answer(input_list):
+    triple_count = 0
+    end = 2
+    middle = 1
+    start = 0
+    double_check = lambda a, b: a % b
+    if len(sorted(list(set(input_list)))) <= 2:
+        return 0
+    while start < len(input_list)-2:
+        while middle < len(input_list)-1:
+            while end < len(input_list) and double_check(input_list[middle], input_list[start]) == 0:
+                if double_check(input_list[end], input_list[middle]) == 0:
+                    triple_count += 1
+                end += 1
+            middle += 1
+            end = middle + 1
+        start += 1
+        middle = start + 1
+    return triple_count
+
+print(answer(m))
+print(answer(n))
+print(answer(o))
+print(answer(p))
+print(answer(q))

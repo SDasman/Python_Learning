@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from collections import Counter
 import requests
 from string import whitespace, punctuation
-r = requests.get("http://www.literaturepage.com/read/pollyanna-1.html")
+r = requests.get("http://www.bbc.com/sport/winter-olympics/43017297")
 
 soup = BeautifulSoup(r.content, "html5lib")
 
@@ -11,7 +11,8 @@ text = (word.lower().strip(whitespace + punctuation)
         for text in element.findAll(text=True)
         for word in text.split())
 
-words_to_exclude = {'a', 'or', 'the', 'of', 'it', 'is', 'it', 'and', 'in', 'she', 'he', 'to', 'i'}
+words_to_exclude = {'a', 'or', 'for', 'on', 'the', 'of', 'it', 'is', 'it', 'and', 'in', 'she', 'he', 'to', 'i', 'his', '', 'was',
+                    'as', 'with'}
 
 important = Counter(word for word in text if word not in words_to_exclude)
 
